@@ -5,10 +5,10 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <a routerLink="/home" class="hover:text-indigo-400 transition duration-300">Home</a>
-        <a routerLink="/about" class=" hover:text-indigo-400 transition duration-300">About</a>
-        <a routerLink="/pricing" class="hover:text-indigo-400 transition duration-300">Pricing</a>
-        <a routerLink="/contact" routerLinkActive="router-link-active" class="hover:text-indigo-400 transition duration-300">Contact</a>
+        <a href="#home" class="hover:text-indigo-400 transition duration-300">Home</a>
+        <a href="#about" class=" hover:text-indigo-400 transition duration-300">About</a>
+        <a href="#pricing" class="hover:text-indigo-400 transition duration-300">Pricing</a>
+        <a href="#contact" routerLinkActive="router-link-active" class="hover:text-indigo-400 transition duration-300">Contact</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -22,13 +22,15 @@
     <!-- Mobile Navigation -->
      @if(isMenuOpen){
         <div class="md:hidden mt-4 space-y-4 pb-4">
-            <a href="/home" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Home</a>
-            <a href="/about" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">About</a>
-            <a href="/pricing" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Pricing</a>
-            <a href="/contact" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Contact</a>
+            <a href="#home" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Home</a>
+            <a href="#about" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">About</a>
+            <a href="#pricing" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Pricing</a>
+            <a href="#contact" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Contact</a>
         </div>
      }
-
   </div>
 </header>
+
+
+<!-- Switching from mobile version to desktop version creates whitespaces under the page, needs to be fixed -->
 
