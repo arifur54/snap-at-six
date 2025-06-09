@@ -1,9 +1,15 @@
-<app-header></app-header>
+<app-header (isLoginActiveEmitter)="onLoginStatusChanged($event)"></app-header>
 <main>
-  <section id="home"><app-hero></app-hero></section>
-  <section id="about"><app-about></app-about></section>
-  <section id="pricing"><app-pricing></app-pricing></section>
-  <section id="contact"><app-contact></app-contact></section>
-  <app-footer></app-footer>
-</main>
+  @if(!isLoginVisible){
+    <app-main-layout></app-main-layout>
+  }
+  @else {
+     <app-guest-and-admin-layout></app-guest-and-admin-layout>
+  }
 
+</main>
+<app-footer></app-footer>
+
+
+
+<!-- <router-outlet /> -->
