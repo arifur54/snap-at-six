@@ -1,12 +1,48 @@
-<section class="min-h-screen bg-black text-white flex items-center justify-center relative overflow-hidden">
-  <div class="absolute inset-0 bg-black opacity-70"></div>
-  <div class="container mx-auto px-6 z-10 text-center">
-    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Capture Your Perfect Moments</h1>
-    <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto animate-fade-in delay-100">
-      Premium photo booth rentals for weddings, corporate events, and special occasions
-    </p>
-    <button class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-indigo-400 hover:text-white transition duration-300 animate-fade-in delay-200">
-      Book Now
-    </button>
-  </div>
-</section>
+    <section class="min-h-screen text-white flex items-center justify-center relative overflow-hidden">
+      <!-- Background Images Container -->
+
+       @for (image of images; track image.url; let i = $index) {
+          <div
+            class="bg-image absolute inset-0 bg-cover bg-center transition-all duration-2000 ease-in-out"
+            [class.opacity-100]="i === currentIndex"
+            [class.opacity-0]="i !== currentIndex"
+            [class.scale-105]="i === currentIndex"
+            [class.scale-100]="i !== currentIndex"
+            [style.background-image]="'url(' + image.url + ')'"
+            [attr.aria-hidden]="i !== currentIndex">
+          </div>
+        }
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black opacity-70"></div>
+
+      <!-- Content -->
+      <div class="container mx-auto px-6 z-10 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+          Capture Your Perfect Moments
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto animate-fade-in-delay-100">
+          Premium photo booth rentals for weddings, corporate events, and special occasions
+        </p>
+
+          <button
+          class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-indigo-400 hover:text-white transition duration-300 animate-fade-in-delay-200"
+          (click)="onBookNow()">
+          Book Now
+        </button>
+
+        <!-- Image Indicators -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+          @for (image of images; track image.url; let i = $index) {
+            <button
+              class="indicator w-3 h-3 rounded-full bg-white transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              [class.opacity-100]="i === currentIndex"
+              [class.opacity-40]="i !== currentIndex"
+              (click)="goToImage(i)"
+              [attr.aria-label]="'Go to image ' + (i + 1)"
+              type="button">
+            </button>
+          }
+        </div>
+      </div>
+    </section>

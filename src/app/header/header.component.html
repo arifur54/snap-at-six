@@ -26,13 +26,13 @@
     <!-- Mobile Navigation -->
      @if(isMenuOpen){
         <div class="md:hidden mt-4 space-y-4 pb-4">
-            <a href="#home" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Home</a>
-            <a href="#about" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">About</a>
-            <a href="#pricing" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Pricing</a>
-            <a href="#contact" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu()">Contact</a>
-            <a routerLink="/login"
+            <a href="#home" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()"><span></span>Home</a>
+            <a href="#about" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">About</a>
+            <a href="#pricing" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">Pricing</a>
+            <a href="#contact" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">Contact</a>
+            <a routerLink="/guest"
               class="inline-block text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md"
-              (click)="closeMenu()">
+              (click)="closeMenu(); setLoginToTrue()">
               Login
             </a>
         </div>
