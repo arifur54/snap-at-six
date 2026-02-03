@@ -3,9 +3,18 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { GuestAndAdminLayoutComponent } from './guest-and-admin-layout/guest-and-admin-layout.component';
 import { GuestRegisterComponent } from './guest-and-admin-layout/guest-section/guest-register/guest-register.component';
 import { GuestLoginComponent } from './guest-and-admin-layout/guest-section/guest-login/guest-login.component';
+import { AboutComponent } from './main-layout/landing-component/about/about.component';
+import { LandingComponent } from './main-layout/landing-component/landing-component.component';
 
 export const routes: Routes = [
-  {path: 'home', component: MainLayoutComponent},
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {path: '', component: LandingComponent},
+      {path: '', redirectTo: 'home', pathMatch:'full' }
+    ]
+  },
   {
     path: 'guest', component: GuestAndAdminLayoutComponent,
     children: [

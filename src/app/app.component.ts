@@ -7,12 +7,12 @@ import { GuestAndAdminLayoutComponent } from "./guest-and-admin-layout/guest-and
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, MainLayoutComponent, FooterComponent, GuestAndAdminLayoutComponent],
+  imports: [HeaderComponent, MainLayoutComponent, GuestAndAdminLayoutComponent, FooterComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'snap-at-six';
+  title = 'Zaz Events';
 
   isLoginVisible = false;
 

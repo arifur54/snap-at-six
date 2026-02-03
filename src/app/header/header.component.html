@@ -1,14 +1,14 @@
 <header class="fixed w-full bg-black text-white z-50 shadow-lg">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold" (click)="setLoginToFalse()">SnapAtSix</a>
+      <a id="home" class="text-2xl font-bold" (click)="setLoginToFalse()">Zaz Events</a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="hover:text-indigo-400 transition duration-300" (click)="setLoginToFalse()">Home</a>
-        <a href="#about" class=" hover:text-indigo-400 transition duration-300" (click)="setLoginToFalse()">About</a>
-        <a href="#pricing" class="hover:text-indigo-400 transition duration-300" (click)="setLoginToFalse()">Pricing</a>
-        <a href="#contact" routerLinkActive="router-link-active" class="hover:text-indigo-400 transition duration-300" (click)="setLoginToFalse()">Contact</a>
+        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('home'); setLoginToFalse()">Home</button>
+        <button class=" hover:text-indigo-400 transition duration-300" (click)="scrollTo('about'); setLoginToFalse()">About</button>
+        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('pricing'); setLoginToFalse()">Pricing</button>
+        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('contact'); setLoginToFalse()">Contact</button>
         <a routerLink="/guest"
           class="text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md cursor-pointer" (click)="setLoginToTrue()">
           Login

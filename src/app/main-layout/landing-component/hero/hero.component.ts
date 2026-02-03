@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 interface HeroImage {
   url: string;
@@ -11,7 +12,10 @@ interface HeroImage {
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
-   images: HeroImage[] = [
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  images: HeroImage[] = [
     { url: 'assets/img_goof_1.png', alt: 'Photo booth setup 1' },
     { url: 'assets/img_goof_2.png', alt: 'Photo booth setup 2' },
     { url: 'assets/img_goof_3.png', alt: 'Photo booth setup 3' },
@@ -24,7 +28,9 @@ export class HeroComponent {
   private isTransitioning = false;
 
   ngOnInit(): void {
-    this.startImageRotation();
+     if (isPlatformBrowser(this.platformId)) {
+      this.startImageRotation();
+    }
   }
 
   ngOnDestroy(): void {
@@ -32,6 +38,7 @@ export class HeroComponent {
   }
 
   private startImageRotation(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.intervalId = window.setInterval(() => {
       this.nextImage();
     }, this.rotationInterval);

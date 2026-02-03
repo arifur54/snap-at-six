@@ -23,7 +23,7 @@
             <span class="text-gray-500">/event</span>
           </div>
           <ul class="space-y-3 mb-8">
-            @for(feature of tier.features; track feature[0]){
+            @for(feature of tier.features; track $index){
                 <li class="flex items-start">
               <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>

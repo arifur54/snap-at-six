@@ -23,6 +23,14 @@ export class HeaderComponent {
      console.log(`2 ${this.isLogin}`);
   }
 
+  scrollTo(id: string){
+    if(id === 'home'){
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    console.log(id)
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
