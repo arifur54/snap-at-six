@@ -1,14 +1,14 @@
 <header class="fixed w-full bg-black text-white z-50 shadow-lg">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
-      <a id="home" class="text-2xl font-bold" (click)="setLoginToFalse()">Zaz Events</a>
+      <button id="home" class="text-2xl font-bold cursor-pointer" (click)="scrollTo('home'); setLoginToFalse()">Zaz Events</button>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('home'); setLoginToFalse()">Home</button>
-        <button class=" hover:text-indigo-400 transition duration-300" (click)="scrollTo('about'); setLoginToFalse()">About</button>
-        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('pricing'); setLoginToFalse()">Pricing</button>
-        <button class="hover:text-indigo-400 transition duration-300" (click)="scrollTo('contact'); setLoginToFalse()">Contact</button>
+        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('home'); setLoginToFalse()">Home</button>
+        <button class=" hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('about'); setLoginToFalse()">About</button>
+        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('pricing'); setLoginToFalse()">Pricing</button>
+        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('contact'); setLoginToFalse()">Contact</button>
         <a routerLink="/guest"
           class="text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md cursor-pointer" (click)="setLoginToTrue()">
           Login
@@ -26,10 +26,10 @@
     <!-- Mobile Navigation -->
      @if(isMenuOpen){
         <div class="md:hidden mt-4 space-y-4 pb-4">
-            <a href="#home" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()"><span></span>Home</a>
-            <a href="#about" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">About</a>
-            <a href="#pricing" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">Pricing</a>
-            <a href="#contact" class="block hover:text-indigo-400 transition duration-300" (click)="closeMenu(); setLoginToFalse()">Contact</a>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('home'); closeMenu(); setLoginToFalse()"><span></span>Home</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('about'); closeMenu(); setLoginToFalse()">About</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('pricing'); closeMenu(); setLoginToFalse()">Pricing</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('contact'); closeMenu(); setLoginToFalse()">Contact</button>
             <a routerLink="/guest"
               class="inline-block text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md"
               (click)="closeMenu(); setLoginToTrue()">
