@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { GuestAndAdminLayoutComponent } from "./guest-and-admin-layout/guest-and-admin-layout.component";
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,7 @@ export class AppComponent {
     this.isLoginVisible = isLogin;
     console.log(`Login Status Changed: ${isLogin}`)
   }
+
+  private firestore = inject(Firestore);
 }
+
