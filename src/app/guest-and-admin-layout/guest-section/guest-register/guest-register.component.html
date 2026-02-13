@@ -46,6 +46,24 @@
       </button>
     </form>
 
+    <div class="flex items-center gap-3 py-2">
+  <div class="flex-1 h-px bg-gray-300"></div>
+  <span class="text-sm text-gray-500">or</span>
+  <div class="flex-1 h-px bg-gray-300"></div>
+</div>
+
+    <!-- Google Register Button -->
+    <button
+      type="button"
+      (click)="registerWithGoogle()"
+      class="w-full flex items-center justify-center gap-3 py-2 border border-gray-300 rounded-lg font-medium bg-white hover:bg-gray-50 transition cursor-pointer"
+    >
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg"
+          class="w-5 h-5"
+          alt="Google logo" />
+      Register with Google
+    </button>
+
     <!-- Login Redirect -->
     <div class="pt-4 text-center text-sm text-gray-600">
       Already have an account?
@@ -53,6 +71,10 @@
         Login here
       </a>
     </div>
+
+    <button (click)="debugLogout()" class="text-red-500">
+      Debug Logout
+    </button>
   </div>
 </div>
 

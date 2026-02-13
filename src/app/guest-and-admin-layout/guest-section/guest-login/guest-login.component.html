@@ -12,13 +12,17 @@
       <div>
         <label class="block text-sm font-medium">Password</label>
         <input type="password" name="password"
-               class="mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white" required />
+              [(ngModel)]="password" class="mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white" required />
       </div>
 
       <button type="submit"
               class="w-full py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-300 transition duration-200 cursor-pointer">
         Login
       </button>
+
+      <p *ngIf="error" class="text-red-400 text-sm text-center">
+        {{ error }}
+      </p>
     </form>
 
     <!-- Register Link -->

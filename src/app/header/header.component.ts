@@ -1,9 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Auth, User } from '@angular/fire/auth';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -11,6 +15,15 @@ export class HeaderComponent {
   isMenuOpen = false;
   @Output() isLoginActiveEmitter = new EventEmitter<boolean>();
   isLogin = false;
+  
+  user$!: Observable<User | null>;
+  
+  constructor(private auth: Auth, private authService: AuthService) {}
+
+  ngOnInit(){
+    this.user$ = this.authService.user$;
+  }
+
 
   setLoginToTrue(){
     this.isLogin = true;
@@ -37,6 +50,11 @@ export class HeaderComponent {
 
   closeMenu() {
     this.isMenuOpen = false;
+  }
+
+  signOut() {
+    this.authService.logOut();
+
   }
 
 
