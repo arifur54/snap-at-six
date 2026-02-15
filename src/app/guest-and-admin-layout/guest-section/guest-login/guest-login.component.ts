@@ -10,12 +10,13 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './guest-login.component.html',
   styleUrl: './guest-login.component.css',
 })
+
 export class GuestLoginComponent {
-  email = '';
-  password = '';
-  isAdmin = false;
-  isLoading = false;
-  error = "";
+  email:string = '';
+  password:string = '';
+  isLoading:boolean = false;
+  isAdmin:boolean = false;
+  error:string = "";
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -25,17 +26,20 @@ export class GuestLoginComponent {
 
     try {
       const userCredential = await this.authService.login(this.email, this.password);
+      const profile = await this.authService.getCurrentUserProfile(userCredential.user.uid);
 
-      console.log('Login Successful', userCredential.user);
+      console.log('Login successful', profile);
 
       // Redirect after login
 
-      if(this.isAdmin){
+      if(profile.role === 'admin'){
         // Route to Admin Page
-        console.log(this.isAdmin);
+        console.log('Admin login');
+        this.router.navigate(['/admin']);
       }else{
         // Route to Guest Page
-        console.log(this.isAdmin);
+        console.log('Guest login');
+        this.router.navigate(['/guest']);
       }
 
 

@@ -1,23 +1,28 @@
 <header class="fixed w-full bg-black text-white z-50 shadow-lg">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
-      <button id="home" class="text-2xl font-bold cursor-pointer" (click)="scrollTo('home'); setLoginToFalse()">Zaz Events</button>
+      <a id="home" class="text-2xl font-bold cursor-pointer" (click)="scrollTo('home'); ">Zaz Events</a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('home'); setLoginToFalse()">Home</button>
-        <button class=" hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('about'); setLoginToFalse()">About</button>
-        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('pricing'); setLoginToFalse()">Pricing</button>
-        <button class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('contact'); setLoginToFalse()">Contact</button>
+        <a routerLink="/" fragment="home" class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('home'); ">Home</a>
+        <a routerLink="/" fragment="about" class=" hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('about'); ">About</a>
+        <a routerLink="/" fragment="pricing" class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('pricing'); ">Pricing</a>
+        <a routerLink="/" fragment="contact" class="hover:text-indigo-400 transition duration-300 cursor-pointer" (click)="scrollTo('contact'); ">Contact</a>
+        @if(isAdmin$ | async){
+        <a routerLink="/admin" class="hover:text-indigo-400 transition duration-300 cursor-pointer">
+          Admin
+        </a>
+        }
         @if(user$ | async; as user){
           <button (click)="signOut()"
             class="text-white font-semibold hover:text-orange-300 transition duration-300 cursor-pointer">
             Logout
           </button>
         } @else {
-          <a routerLink="/guest"
+          <a routerLink="/guest/login"
             class="text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md cursor-pointer"
-            (click)="setLoginToTrue()">
+            >
             Login
           </a>
         }
@@ -35,13 +40,13 @@
     <!-- Mobile Navigation -->
      @if(isMenuOpen){
         <div class="md:hidden mt-4 space-y-4 pb-4">
-            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('home'); closeMenu(); setLoginToFalse()"><span></span>Home</button>
-            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('about'); closeMenu(); setLoginToFalse()">About</button>
-            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('pricing'); closeMenu(); setLoginToFalse()">Pricing</button>
-            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('contact'); closeMenu(); setLoginToFalse()">Contact</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('home'); closeMenu(); "><span></span>Home</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('about'); closeMenu(); ">About</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('pricing'); closeMenu(); ">Pricing</button>
+            <button class="block hover:text-indigo-400 transition duration-300" (click)="scrollTo('contact'); closeMenu(); ">Contact</button>
             <a routerLink="/guest"
               class="inline-block text-white font-semibold hover:text-orange-300 transition duration-300 shadow-md"
-              (click)="closeMenu(); setLoginToTrue()">
+              (click)="closeMenu();">
               Login
             </a>
         </div>

@@ -1,4 +1,4 @@
-<app-header (isLoginActiveEmitter)="onLoginStatusChanged($event)"></app-header>
+<!-- <app-header (isLoginActiveEmitter)="onLoginStatusChanged($event)"></app-header>
 <main>
   @if(!isLoginVisible){
     <app-main-layout></app-main-layout>
@@ -9,7 +9,12 @@
 
 </main>
 <app-footer></app-footer>
+ -->
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet> 
+</main>
+<app-footer></app-footer>
 
-
-
-<!-- <router-outlet /> -->
+<!-- 
+<router-outlet></router-outlet> -->

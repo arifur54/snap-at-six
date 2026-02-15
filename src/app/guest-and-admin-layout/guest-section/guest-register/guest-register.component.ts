@@ -23,10 +23,6 @@ export class GuestRegisterComponent {
   constructor(private auth: Auth, private firestore: Firestore) {}
 
   async onRegister() {
-    console.log('Registering guest:', {
-     
-      password: this.password
-    });
     // TODO: Handle actual registration logic (API call etc.)
 
     try {
@@ -45,6 +41,7 @@ export class GuestRegisterComponent {
         lastName: this.lastName,
         email: this.email,
         phone: this.phone,
+        role: 'guest',
         createdAt: new Date()
       })
 
