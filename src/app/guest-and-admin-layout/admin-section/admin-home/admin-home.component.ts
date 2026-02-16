@@ -5,10 +5,12 @@ import { Observable, switchMap } from 'rxjs';
 import { UserProfile } from '../../../interfaces/user-profile';
 import { AuthService } from '../../../services/auth.service';
 import { User } from 'firebase/auth';
+import { NavSidebarComponent } from "../../../global-components/nav-sidebar/nav-sidebar.component";
 
 @Component({
   selector: 'app-admin-home',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule ],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, NavSidebarComponent],
+  standalone: true,
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.css'
 })
@@ -33,12 +35,12 @@ export class AdminHomeComponent {
     ));
   }
 
-  toggleSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
-  }
+  // toggleSidebar() {
+  //   this.sidebarOpen = !this.sidebarOpen;
+  // }
 
-  closeSidebar() {
-    this.sidebarOpen = false;
-  }
+  // closeSidebar() {
+  //   this.sidebarOpen = false;
+  // }
 
 }
